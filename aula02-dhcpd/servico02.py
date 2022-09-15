@@ -13,18 +13,24 @@ from subprocess import call
 import os
 import time
 
-CLIENTS = 50
+CLIENTS = 40
+TIMEOUT = 50
 
 def setIPaddr(host, iface, ipaddr):
-    host.cmd('ifconfig %s %s' % (iface, ipaddr))
+    host_iface=host.name + '-' + iface
+    info('%s: setting IP address %s at network interface %s\n' % (host.name, iface, ipaddr))
+    host.cmd('ifconfig %s %s' % (host_iface, ipaddr))
+    host.intf(host_iface).updateIP()
 
 def _waitForanIP(host):
     info('%s waiting for an IP address' % host.name)
-    while True:
+    i = 0
+    while i < TIMEOUT:
         host.defaultIntf().updateIP()
         if host.IP():
             break
         info('.')
+        i += 1
         time.sleep(0.1)
     info('\n')
 
