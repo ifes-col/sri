@@ -90,7 +90,7 @@ def myNetwork():
 
     # S2 hosts
     for i in range(1, hostsPerSegment+1):
-        host = net.addHost('h%s' % (i+20), ip='0.0.0.0', mac='00:00:00:00:01:%02x' % i)
+        host = net.addHost('h%s' % (i+hostsPerSegment), ip='0.0.0.0', mac='00:00:00:00:01:%02x' % i)
         net.addLink(host, s2)
         host.dhcpServer = False
 
