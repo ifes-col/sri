@@ -32,9 +32,9 @@ cd sri/lab-01
 
 Após configurar o ambiente, você pode iniciar o Terraform e criar o ambiente virtualizado local com o VirtualBox com os seguintes passos:
 
-1. Corrigindo o caminho (path) do executável do VirtualBox:
+1. Corrigindo o caminho (path) do executável do VirtualBox e do Terraform:
 ```cmd
-$env:PATH = $env:PATH + ";C:\Program Files\Oracle\VirtualBox"
+$env:PATH = $env:PATH + ";C:\Program Files\Oracle\VirtualBox;<caminho_de_instalacao_do_terraform>;"
 ```
 
 2. Inicialize o Terraform para baixar os plugins necessários:
