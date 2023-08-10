@@ -62,8 +62,61 @@ Para acessar a máquina virtual recém criada, basta utilizar as seguintes crede
 
 ## Limpando o Ambiente
 
-Lembre-se de que as máquinas virtuais criadas localmente podem ocupar recursos do seu sistema. Após concluir o laboratório, lembre-se de destruir as máquinas virtuais e recursos criados para liberar os recursos do sistema:
+Lembre-se de que as máquinas virtuais criadas localmente podem ocupar recursos do seu sistema. Após concluir o laboratório, lembre-se de desligar e destruir as máquinas virtuais e recursos criados para liberar os recursos do sistema:
 
 ```cmd
 terraform destroy
+```
+
+## Dissecando o Arquivo de Infraestrutura (main.tf)
+
+Este arquivo fornece uma visão geral da estrutura básica de um arquivo de configuração de infraestrutura do Terraform. Ele é usado para definir, configurar e gerenciar recursos de infraestrutura de maneira declarativa.
+
+### Cabeçalho
+
+O cabeçalho do arquivo geralmente contém informações sobre a versão do Terraform e outras configurações globais:
+
+```js
+terraform {
+  required_version = ">= 0.13"  # Versão mínima do Terraform necessária
+  # Outras configurações globais podem ser definidas aqui
+}
+```
+
+### Provedor
+
+Em seguida, especificamos o provedor de infraestrutura que será utilizado, como AWS, Azure, Google Cloud, virtualbox etc. Isso define como o Terraform se conectará ao ambiente de destino:
+
+```js
+# Provedor do VirtualBox
+...
+  required_providers {
+    virtualbox = {
+      source = "terra-farm/virtualbox"
+      version = "0.2.2-alpha.1"
+    }
+  }
+...
+```
+
+### Recursos
+
+Os recursos representam os componentes de infraestrutura que você deseja criar e gerenciar. Eles podem ser instâncias de máquinas virtuais, bancos de dados, redes, entre outros. Baseado no exemplo do laboratório, segue um exemplo de definição de recurso:
+
+```js
+...
+resource "virtualbox_vm" "node" {
+  count     = 1
+  name      = format("node-%02d", count.index+1)
+  # Ubuntu 20.04 box
+  image     = "https://app.vagrantup.com/ubuntu/boxes/focal64/versions/20230803.0.0/providers/virtualbox.box"
+  cpus      = 1
+  memory    = "1024 mib"
+  user_data = file("${path.module}/user_data")
+
+  network_adapter {
+    type           = "hostonly"
+    host_interface = "VirtualBox Host-Only Ethernet Adapter"
+  }
+...
 ```
