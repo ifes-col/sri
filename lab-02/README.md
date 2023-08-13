@@ -9,6 +9,7 @@ Nesta parte do laboratório, vamos expandir a infraestrutura de rede configurada
 Certifique-se de que o ambiente do laboratório anterior esteja funcionando corretamente antes de continuar. Além disso, verifique se você tem espaço de endereço disponível na rede 192.168.10.0/24 e que a configuração de rede do VirtualBox está adequada.
 
 1.  Clone (1.1) __OU__ atualize (1.2) o repositório da disciplina:
+
     1.1. __Caso não tenha clonado o repositório anteriormente__: 
     Clone este repositório em seu ambiente local utilizando o seguinte comando:
 
@@ -51,7 +52,9 @@ rundll32 sysdm.cpl,EditEnvironmentVariables
 ```
 
 Edite a variável `Path` do usuário conforme figura abaixo, acrescentando `C:\Program Files\Oracle\VirtualBox` e o <caminho_de_instalacao_do_terraform>:
+
 ![Alt text](windows_variaveis_ambiente.png)
+
 
 > **Note**
 > Você deve substituir '<caminho_de_instalacao_do_terraform>' pelo caminho completo onde o executável do Terraform foi extraído/instalado.
