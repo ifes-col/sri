@@ -18,7 +18,7 @@ resource "virtualbox_vm" "node" {
   user_data = file("${path.module}/user_data")
 
   network_adapter {
-    type           = "hostonly"
-    host_interface = "VirtualBox Host-Only Ethernet Adapter"
+    type           = "internal"
+    host_interface = "intnet"
   }
 }
