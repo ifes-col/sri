@@ -9,7 +9,7 @@ terraform {
 }
 
 resource "virtualbox_vm" "node" {
-  count     = 4
+  count     = 1
   name      = format("node-%02d", count.index+1)
   # Alpine Linux 3.8
   image     = "https://app.vagrantup.com/generic/boxes/alpine38/versions/4.2.16/providers/virtualbox.box"
