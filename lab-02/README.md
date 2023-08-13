@@ -12,17 +12,18 @@ Certifique-se de que o ambiente do laboratório anterior esteja funcionando corr
     1.1. __Caso não tenha clonado o repositório anteriormente__: 
     Clone este repositório em seu ambiente local utilizando o seguinte comando:
 
-```cmd
-git clone https://github.com/ifes-col/sri.git
-```
+    ```cmd
+    git clone https://github.com/ifes-col/sri.git
+    ```
 
     1.2. __Atualizando um repositório já clonado__:
     Mude para o diretório atual do repositório da disciplina e atualize-o usando os seguintes comandos:
 
-```cmd
-cd <diretório_do_git_da_disciplina>
-git pull
-```
+    ```cmd
+    cd <diretório_do_git_da_disciplina>
+    git pull
+    ```
+    
 > **Note**
 > Você deve substituir '<diretório_do_git_da_disciplina>' pelo caminho completo onde o GitHub da disciplina foi baixado previamente.
 
