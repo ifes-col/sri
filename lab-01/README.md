@@ -41,7 +41,7 @@ $env:PATH = $env:PATH + ";C:\Program Files\Oracle\VirtualBox;<caminho_de_instala
 
 Usando o prompt de comando (CMD):
 ```cmd
-set PATH = %PATH%;C:\Program Files\Oracle\VirtualBox;<caminho_de_instalacao_do_terraform>;
+set PATH=%PATH%;C:\Program Files\Oracle\VirtualBox;<caminho_de_instalacao_do_terraform>;
 ```
 
 > **Note**
