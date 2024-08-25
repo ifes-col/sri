@@ -1,4 +1,4 @@
-# Serviços de Redes para a Internet (SRI 2023/2)
+# Serviços de Redes para a Internet (SRI)
 
 ## Introdução
 
