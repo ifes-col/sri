@@ -9,16 +9,17 @@ terraform {
 }
 
 resource "virtualbox_vm" "node" {
-  count     = 1
+  count     = 4
   name      = format("node-%02d", count.index+1)
-  # Alpine Linux 3.8
-  image     = "https://app.vagrantup.com/generic/boxes/alpine38/versions/4.2.16/providers/virtualbox.box"
+  # Alpine Linux 3.18
+  image     = "https://app.vagrantup.com/generic/boxes/alpine318/versions/4.3.12/providers/virtualbox/amd64/vagrant.box"
   cpus      = 1
   memory    = "256 mib"
   user_data = file("${path.module}/user_data")
 
   network_adapter {
-    type           = "internal"
-    host_interface = "intnet"
+    type           = "hostonly"
+    host_interface = "VirtualBox Host-Only Ethernet Adapter"
   }
+
 }
