@@ -19,6 +19,7 @@ resource "virtualbox_vm" "node" {
 
   network_adapter {
     type           = "hostonly"
+    # Alterar o nome da iface de acordo com o setup de seu VirtualBox
     host_interface = "VirtualBox Host-Only Ethernet Adapter"
   }
 
