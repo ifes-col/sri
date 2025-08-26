@@ -1,0 +1,9 @@
+#!/bin/bash
+# Simple userdata to install nginx and serve a hello page
+apt-get update
+apt-get install -y nginx
+cat > /var/www/html/index.html <<'EOF'
+<h1>Lab 03 - Terraform AWS EC2</h1>
+<p>Instância provisionada via Terraform - nginx está servindo esta página.</p>
+EOF
+systemctl enable --now nginx
