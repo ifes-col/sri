@@ -111,7 +111,7 @@ Como usar
 2. Navegue para o diretório do lab:
 
 ```powershell
-cd c:\Users\loxxx\git\sri\lab-03
+cd %USERPROFILE%\sri\lab-03
 ```
 
 3. Execute o script (exemplo):
@@ -133,14 +133,11 @@ terraform apply
 ```
 
 Avisos de segurança
-- Evite compartilhar ou versionar o arquivo `%USERPROFILE%\.aws\credentials`.
+- Evite compartilhar ou versionar o arquivo `~/.aws/credentials` ou `%USERPROFILE%\.aws\credentials`.
 - Exclua entradas antigas se não forem mais necessárias.
 
 Boas práticas de segurança
 -------------------------
 - Nunca versionar chaves (não coloque `AWS_ACCESS_KEY_ID`/`AWS_SECRET_ACCESS_KEY` em arquivos de código ou `variables.tf`).
-- Prefira perfis em `~/.aws/credentials` ou roles temporárias/roles do serviço.
+- Prefira perfis em `~/.aws/credentials` (Linux/macOS), `%USERPROFILE%\.aws\credentials` (Windows) ou roles temporárias/roles do serviço.
 - Restrinja `ssh_cidr` ao seu IP em vez de `0.0.0.0/0`.
-
-Contato
-- Este lab foi criado automaticamente como ponto de partida. Ajuste os valores conforme necessário.
